@@ -2,6 +2,12 @@
 
 基于limu的react版本
 
+## DEMO
+
+<h3><a href="`https://codesandbox.io/s/serene-rubin-y5583?file=/src/example-state.js`"  target="_blank">综合示例</a></h3>
+<h3>
+
+
 ## APIS
 
 ### useLimu
@@ -19,7 +25,6 @@ setState( _state => {
 //2.赋值式
 setState(newState)
 ```
-
 
 ### useLimuReducer
 
