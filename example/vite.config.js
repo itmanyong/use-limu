@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:54:11
- * @LastEditTime: 2021-07-09 10:39:23
+ * @LastEditTime: 2021-07-19 15:41:53
  * @LastEditors: itmanyong
  * @Description: 
  * @FilePath: \use-limu\example\vite.config.js
@@ -14,6 +14,6 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 export default defineConfig({
 	plugins: [reactRefresh()],
 	server: {
-		port: 9000,
+		port: 9001,
 	},
 });

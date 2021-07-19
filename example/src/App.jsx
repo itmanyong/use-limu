@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:54:11
- * @LastEditTime: 2021-07-09 13:35:54
+ * @LastEditTime: 2021-07-19 16:06:22
  * @LastEditors: itmanyong
  * @Description:
  * @FilePath: \use-limu\example\src\App.jsx
@@ -150,6 +150,23 @@ function LimuObject(props) {
 // useLimuArray
 function LimuArray(props) {
 	const { state, setState, change } = useLimuArray([555, { id: 2, name: '王五', age: 99 }], { idName: 'id' });
+	const { state: state2, add, remove } = useLimuArray([{ id: `1` }], { idName: 'id' });
+
+	const add_after = () => {
+		add(state2.length, 0, { id: `${state2.length}` }, { id: `${state2.length + 1}` });
+	};
+
+	const add_before = () => {
+		add(0, 0, { id: `${2 - state2.length}` }, { id: `${1 - state2.length}` });
+	};
+
+	const delIndex = (index) => {
+		remove(index);
+	};
+
+	const delId = (item) => {
+		remove(item.id);
+	};
 
 	return (
 		<ul>
@@ -163,6 +180,20 @@ function LimuArray(props) {
 				<span>按照指定标识字段修改state[1].age：</span>
 				<span>{state[1].age}</span>
 				<input value={state[1].age} onChange={(e) => change(`${state[1].id}`, { age: e.target.value })} />
+			</li>
+			<li style={{ marginTop: 20 }}>
+				<div>
+					当前数据：<button onClick={add_after}>末尾新增</button>
+					<button onClick={add_before}>首部新增</button>
+				</div>
+				<div>
+					{state2.map((o, i) => (
+						<div key={i}>
+							{JSON.stringify(o)}-----<button onClick={() => delIndex(i)}>下标删除</button>-
+							<button onClick={() => delId(o)}>标识字段删除</button>
+						</div>
+					))}
+				</div>
 			</li>
 		</ul>
 	);

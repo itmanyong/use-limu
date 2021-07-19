@@ -46,6 +46,6 @@ export default function useLimuObject(initState = null) {
 					});
 				}
 			}
-		}, []),
+		}, [state]),
 	};
 }
