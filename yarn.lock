@@ -1227,10 +1227,10 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-limu@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/limu/-/limu-1.0.9.tgz#3968dbeaa704eae28a6378c94db11dc539638db2"
-  integrity sha512-rJMUVOYBm2p/3K3IHLbd6qzU3E7hxro87rBd3rIJKqejPsuGFIGPwvH2JSLUp+xXygYQPNVoeHLDykAdWMiy4A==
+limu@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/limu/-/limu-1.0.10.tgz#ba578f0affbe7c847c64d3002a9fbd3f4cc67f3b"
+  integrity sha512-vs1LURbGEoARW4JgadHjB7DXFPVhF54nQ5XOL4NmZkg7MiusxWueCs5G0mA8I+s8fmoeUX45iUpOxQvzHqoJEA==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"

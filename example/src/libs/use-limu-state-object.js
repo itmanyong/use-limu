@@ -1,14 +1,15 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:55:22
- * @LastEditTime: 2021-07-09 11:12:24
+ * @LastEditTime: 2021-07-19 17:23:41
  * @LastEditors: itmanyong
- * @Description: 
+ * @Description:
  * @FilePath: \use-limu\example\src\libs\use-limu-state-object.js
  * ___
  */
 import React from 'react';
 import useLimu from './use-limu-state';
+import { getType } from './utils';
 /**
  * useLimu的对象版本
  * @param {object} initState 源数据 对象 | 返回对象的函数
@@ -16,11 +17,11 @@ import useLimu from './use-limu-state';
  */
 export default function useLimuObject(initState = null) {
 	const [state, setState] = useLimu(() =>
-		Object.prototype.toString.call(initState) === '[object Object]' ? initState : typeof initState === 'function' ? initState : {},
+		getType(initState).type === 'object' ? initState : getType(initState).type === 'function' ? initState : {},
 	);
 
 	React.useEffect(() => {
-		if (!Object.prototype.toString.call(initState) === '[object Object]'&&typeof initState != 'function') {
+		if (!getType(initState).type === 'object' && !getType(initState).type === 'function') {
 			console.error(`useLimuObject initState not is Object or Function:object`);
 		}
 	}, []);
@@ -29,7 +30,7 @@ export default function useLimuObject(initState = null) {
 		state,
 		setState,
 		change: React.useCallback((filedStr, value) => {
-			if (filedStr && typeof filedStr === 'string') {
+			if (filedStr &&  getType(filedStr).type === 'string') {
 				let filedStrArr = filedStr.split('.');
 				let len = filedStrArr.length;
 				if (len >= 2) {

@@ -1,14 +1,15 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:55:22
- * @LastEditTime: 2021-07-19 16:07:24
+ * @LastEditTime: 2021-07-19 17:26:01
  * @LastEditors: itmanyong
  * @Description:
- * @FilePath: \use-limu\src\use-limu-state-array.js
+ * @FilePath: \use-limu\example\src\libs\use-limu-state-array.js
  * ___
  */
 import React from 'react';
 import useLimu from './use-limu-state';
+import { getType } from './utils';
 /**
  * useLimuArray是useLimu的数组版本
  * @param {Array} initState 源数组 数组 | 返回数组的函数
@@ -17,22 +18,22 @@ import useLimu from './use-limu-state';
  */
 export default function useLimuArray(initState = [], options = {}) {
 	const { idName = null } = options;
-	const [state, setState] = useLimu(() => (Array.isArray(initState) || typeof initState === 'function' ? initState : []));
+	const [state, setState] = useLimu(() => (getType(initState).type === 'array' || getType(initState).type === 'function' ? initState : []));
 
 	React.useEffect(() => {
-		if (!Array.isArray(initState) && !typeof initState === 'function') {
+		if (!getType(initState) === 'array' && !getType(initState).type === 'function') {
 			console.error(`useLimuArray initState not is Array or Function:array`);
 		}
 	}, []);
 
 	return {
-		state,
-		setState,
+		state: state,
+		setState: setState,
 		add: React.useCallback(
 			(start, end, ...adds) => {
 				console.log(start, end, adds);
 				setState((_state) => {
-					_state.splice(typeof start === 'number' ? start : state.length, typeof end === 'number' ? end : 0, ...adds);
+					_state.splice(getType(start).type === 'number' ? start : state.length, getType(end).type === 'number' ? end : 0, ...adds);
 				});
 			},
 			[state],
@@ -40,7 +41,7 @@ export default function useLimuArray(initState = [], options = {}) {
 		remove: React.useCallback(
 			(val, len = 1) => {
 				setState((_state) => {
-					switch (typeof val) {
+					switch (getType(val).type) {
 						case 'number':
 							_state.splice(val, len);
 							break;
@@ -62,15 +63,13 @@ export default function useLimuArray(initState = [], options = {}) {
 		change: React.useCallback(
 			(filedValue = null, payLoad = null) => {
 				if (filedValue || filedValue === 0) {
-					switch (typeof filedValue) {
+					switch (getType(filedValue).type) {
 						case 'string':
 							if (idName) {
 								setState((_state) => {
-									const findIndex = _state.findIndex(
-										(o) => Object.prototype.toString.call(o) === '[object Object]' && o[idName] && o[idName] == filedValue,
-									);
+									const findIndex = _state.findIndex((o) => getType(o) === 'object' && o[idName] && o[idName] == filedValue);
 									if (findIndex || findIndex === 0) {
-										if (Object.prototype.toString.call(payLoad) === '[object Object]') {
+										if (getType(payLoad).type === 'object') {
 											if (findIndex >= 0) {
 												_state[findIndex] = { ..._state[findIndex], ...(payLoad || {}) };
 											}
@@ -85,10 +84,7 @@ export default function useLimuArray(initState = [], options = {}) {
 							break;
 						case 'number':
 							setState((_state) => {
-								if (
-									Object.prototype.toString.call(_state[filedValue]) === '[object Object]' &&
-									Object.prototype.toString.call(payLoad) === '[object Object]'
-								) {
+								if (getType(_state[filedValue]).type === 'object' && getType(payLoad).type === 'object') {
 									_state[filedValue] = {
 										..._state[filedValue],
 										...payLoad,

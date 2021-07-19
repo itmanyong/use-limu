@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:54:11
- * @LastEditTime: 2021-07-19 16:06:22
+ * @LastEditTime: 2021-07-19 17:01:06
  * @LastEditors: itmanyong
  * @Description:
  * @FilePath: \use-limu\example\src\App.jsx
@@ -168,8 +168,20 @@ function LimuArray(props) {
 		remove(item.id);
 	};
 
+	const fore = () => {
+		setState((_state) => {
+			_state.forEach((o, i) => {
+				if (o.id) {
+					o.name = '王二麻子';
+					o.age = 666;
+				}
+			});
+		});
+	};
+	console.log(state);
 	return (
 		<ul>
+			<button onClick={() => fore()}>修改{state[1].name}</button>
 			<h3>useLimuArray</h3>
 			<li>
 				<span>按照下标修改</span>

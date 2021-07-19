@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:55:22
- * @LastEditTime: 2021-07-09 10:38:40
+ * @LastEditTime: 2021-07-19 17:22:13
  * @LastEditors: itmanyong
  * @Description:
  * @FilePath: \use-limu\example\src\libs\use-limu-state.js
@@ -9,6 +9,7 @@
  */
 import React from 'react';
 import { produce } from 'limu';
+import { getType } from './utils';
 /**
  * useState的limu版本,与react-useSatte的区别在于可直接修改数据,详见下面example
  * @param {any} initState 初始数据 必须对象或数组,传入函数最终返回一个对象或数组
@@ -24,13 +25,13 @@ import { produce } from 'limu';
  * 			})
  */
 export default function useLimu(initState = null) {
-	const [state, setState] = React.useState(() => produce(typeof initState === 'function' ? initState() : initState, () => {}));
+	const [state, setState] = React.useState(() => produce(getType(initState).type === 'function' ? initState() : initState, () => {}));
 
 	return [
 		state,
 		React.useCallback(
 			(updater) => {
-				if (typeof updater === 'function') {
+				if (getType(updater).type === 'function') {
 					setState(produce(state, updater));
 				} else {
 					setState(produce(updater, () => {}));
