@@ -383,6 +383,11 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+limu@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/limu/-/limu-1.0.12.tgz#29ef74a180a5f8bf0dfa61907c80ab691f70e0df"
+  integrity sha512-/yJfjLwz6ylDbgD2SSThB8Rm0HVfTE8EH0ATAi5BlRm3llJoUZyP7zE30pg+Y+AGFGcLPoessS2LHas49L4S3A==
+
 loose-envify@^1.1.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"

@@ -6,6 +6,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "limu": "^1.0.12",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },

@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:54:11
- * @LastEditTime: 2021-07-19 17:01:06
+ * @LastEditTime: 2021-07-20 13:51:23
  * @LastEditors: itmanyong
  * @Description:
  * @FilePath: \use-limu\example\src\App.jsx
@@ -178,7 +178,6 @@ function LimuArray(props) {
 			});
 		});
 	};
-	console.log(state);
 	return (
 		<ul>
 			<button onClick={() => fore()}>修改{state[1].name}</button>

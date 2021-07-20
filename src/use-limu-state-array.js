@@ -1,7 +1,7 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:55:22
- * @LastEditTime: 2021-07-19 17:26:01
+ * @LastEditTime: 2021-07-20 13:52:15
  * @LastEditors: itmanyong
  * @Description:
  * @FilePath: \use-limu\example\src\libs\use-limu-state-array.js
@@ -31,7 +31,6 @@ export default function useLimuArray(initState = [], options = {}) {
 		setState: setState,
 		add: React.useCallback(
 			(start, end, ...adds) => {
-				console.log(start, end, adds);
 				setState((_state) => {
 					_state.splice(getType(start).type === 'number' ? start : state.length, getType(end).type === 'number' ? end : 0, ...adds);
 				});
