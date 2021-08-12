@@ -1,12 +1,13 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-19 17:19:25
- * @LastEditTime: 2021-07-19 17:20:00
+ * @LastEditTime: 2021-08-12 18:22:39
  * @LastEditors: itmanyong
  * @Description:
- * @FilePath: \use-limu\example\src\libs\utils.js
+ * @FilePath: \use-limu\src\utils.js
  * ___
  */
+
 /**
  * 获取数据类型
  * @param {any} arg 数据

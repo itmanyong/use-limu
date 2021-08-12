@@ -1,9 +1,10 @@
 {
 	"name": "use-limu",
 	"npmName": "use-limu",
-	"version": "1.2.0",
-	"description": "基于limu的react hook结合版本",
-	"main": "./use-limu.js",
+	"version": "1.2.5",
+	"description": "基于不可变数据状态limu的react hook结合版本",
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
 	"scripts": {
 		"test": "test",
 		"start": "yarn run rollup -c -w",
@@ -27,7 +28,7 @@
 		"url": "https://github.com/itmanyong"
 	},
 	"bugs": {
-		"url": "https://github.com/itmanyong/cxy-react-i18n/issues"
+		"url": "https://github.com/itmanyong/use-limu/issues"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -41,10 +42,10 @@
 		"rollup-plugin-uglify": "^6.0.4"
 	},
 	"dependencies": {
-		"limu": "^1.0.12"
+		"limu": "^1.0.15"
 	},
 	"peerDependencies": {
-		"limu": "^1.0.12",
+		"limu": "^1.0.15",
 		"react": "^17.0.2"
 	}
 }

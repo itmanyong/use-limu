@@ -1,10 +1,10 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-09 09:55:22
- * @LastEditTime: 2021-07-19 17:22:13
+ * @LastEditTime: 2021-08-12 18:47:51
  * @LastEditors: itmanyong
  * @Description:
- * @FilePath: \use-limu\example\src\libs\use-limu-state.js
+ * @FilePath: \use-limu\src\use-limu-state.js
  * ___
  */
 import React from 'react';
@@ -24,17 +24,28 @@ import { getType } from './utils';
  * 				count:state.count++
  * 			})
  */
-export default function useLimu(initState = null) {
+export default function useLimu(initState) {
 	const [state, setState] = React.useState(() => produce(getType(initState).type === 'function' ? initState() : initState, () => {}));
 
 	return [
 		state,
 		React.useCallback(
 			(updater) => {
-				if (getType(updater).type === 'function') {
-					setState(produce(state, updater));
-				} else {
-					setState(produce(updater, () => {}));
+				switch (getType(updater).type) {
+					case 'function':
+						setState(produce(state, updater));
+						break;
+					case 'object':
+						setState(
+							produce(state, (_state) => {
+								Object.keys(updater).forEach((key, inx) => {
+									_state[key] = updater[key];
+								});
+							}),
+						);
+						break;
+					default:
+						break;
 				}
 			},
 			[state],
