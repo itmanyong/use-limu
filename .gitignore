@@ -1,3 +1,5 @@
 node_modules
 .history
+.vscode
+/build
 yarn-error.log
