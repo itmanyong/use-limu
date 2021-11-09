@@ -31,7 +31,7 @@ setState( _state => {
 	// 可直接修改 _state 的值,会响应至state
 	_state.* = **;
 })
-//2.赋值式=解构赋值
+//2.赋值式，替换整个state
 setState(newState)
 ```
 
