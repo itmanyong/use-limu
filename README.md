@@ -10,7 +10,7 @@
 
 # use-limu
 
-<a href="https://github.com/tnfe/limu">limu</a> 的react hook版本
+基于 limu 的 react 版本
 
 ## DEMO
 
@@ -22,28 +22,33 @@
 ### useLimu
 
 ```js
-// 声明
+// 使用同useState
 const [state, setState] = useLimu(initState);
-// 修改数据
-setState(_state => {
-    // 直接修改即可
-    _state.xx = xx;
-});
-setState(newObject); //直接修改整个state
+
+// setState使用
+//1.函数式
+setState( _state => {
+	// 可直接修改 _state 的值,会响应至state
+	_state.* = **;
+})
+//2.赋值式=解构赋值
+setState(newState)
 ```
 
 ### useLimuReducer
 
 ```js
-// 声明
+// 使用同useReducer
 const [state, dispatch] = useLimuReducer(reducer, initState);
 
-// reducer定义,payload为额外参数,可传可不传
-function reducer(_state, action, payload) {
-    // _state = state
-    _state.xx = xx; // 直接修改
+// reducer定义
+function reducer( _state, action, payload ){
+	// _state = state
+	_state.* = *;// 直接修改
 }
 
 // dispatch使用
-dispatch(action, payload);
+dispatch( action, payload )
+
+
 ```

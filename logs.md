@@ -7,10 +7,6 @@
  * @FilePath: \use-limu\logs.md
  * ___
 -->
-
-## 2021.11.09
-1.优化useLimu和useLimuReducer的setState渲染性能
-
 ## 2021.07.20
 1.剔除object和array的针对hook，保留useLimu和useLimuReducer
 2.优化逻辑
