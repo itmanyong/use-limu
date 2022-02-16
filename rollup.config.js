@@ -1,12 +1,12 @@
 /*
  * @Author: itmanyong
  * @Date: 2021-07-19 14:52:50
- * @LastEditTime: 2021-08-12 18:29:52
  * @LastEditors: itmanyong
- * @Description:
+ * @Description: now file Description
+ * @LastEditTime: 2022-02-16 09:17:53
  * @FilePath: \use-limu\rollup.config.js
- * ___
  */
+
 import babel from 'rollup-plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
