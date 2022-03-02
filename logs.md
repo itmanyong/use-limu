@@ -1,12 +1,15 @@
 <!--
  * @Author: itmanyong
  * @Date: 2021-07-19 14:52:50
- * @LastEditTime: 2022-02-16 09:47:13
- * @LastEditors: itmanyong
+ * @LastEditTime: 2022-03-02 16:23:58
+ * @LastEditors: Please set LastEditors
  * @Description:
  * @FilePath: \use-limu\logs.md
  * ___
 -->
+
+## 2022-03-02
+1.新增useLimu、useLimuReducer的ts类型提示
 
 ## 2022-02-16
 
