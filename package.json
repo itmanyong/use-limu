@@ -1,7 +1,7 @@
 {
 	"name": "use-limu",
 	"npmName": "use-limu",
-	"version": "1.3.6",
+	"version": "1.3.7",
 	"description": "基于不可变数据状态limu的react hook结合版本",
 	"main": "build/index.js",
 	"types": "src/types.d.ts",
